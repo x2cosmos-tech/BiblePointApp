@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiblePointApp.MemoryPage"
+             Title="나의 암송 암기장">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="🏠 홈" Clicked="OnHomeToolbarClicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto, *">
+        <Label Grid.Row="0" Text="⭐ 저장된 암송 말씀" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
+
+        <CollectionView x:Name="MemoryListView"
+                        Grid.Row="1"
+                        SelectionMode="Single"
+                        SelectionChanged="OnVerseSelected"
+                        Margin="20,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="삭제" BackgroundColor="Red" Invoked="OnDeleteSwipeInvoked" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Border Margin="0,5" Padding="15" Stroke="LightPink" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding FullReference}" FontSize="18" FontAttributes="Bold" TextColor="#512BD4"/>
+                                <Label Text="{Binding Content}" FontSize="16" TextColor="Black"/>
+                                <Label Text="{Binding Date}" FontSize="12" TextColor="Gray" HorizontalOptions="End"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

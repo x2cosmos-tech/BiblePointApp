@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiblePointApp.BibleListPage"
+             Title="성경 선택">
+
+    <ScrollView Padding="15">
+        <VerticalStackLayout Spacing="20">
+
+            <Label x:Name="OldTestamentLabel"
+                   Text="—— 구약 성경 ——"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"
+                   Margin="0,10"/>
+
+            <FlexLayout x:Name="OldTestamentLayout"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceEvenly"
+                        AlignItems="Center"
+                        AlignContent="Center"/>
+
+            <Label x:Name="NewTestamentLabel"
+                   Text="—— 신약 성경 ——"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,10"/>
+
+            <FlexLayout x:Name="NewTestamentLayout"
+                        Wrap="Wrap"
+                        JustifyContent="SpaceEvenly"
+                        AlignItems="Center"
+                        AlignContent="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

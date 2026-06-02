@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BiblePointApp.ViewModels"
+             x:Class="BiblePointApp.SearchPage"
+             Title="성경 검색">
+
+    <Grid RowDefinitions="Auto, *" Padding="12" RowSpacing="10">
+
+        <Grid Grid.Row="0" ColumnDefinitions="*, Auto" ColumnSpacing="10">
+            <SearchBar Grid.Column="0" 
+                       Text="{Binding SearchText, Mode=TwoWay}" 
+                       Placeholder="검색어를 입력하세요 (예: 태초에)"
+                       SearchCommand="{Binding SearchCommand}"/>
+            <Button Grid.Column="1" Text="검색" Command="{Binding SearchCommand}"/>
+        </Grid>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding SearchResults}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="10" Margin="0,5">
+                        <Label Text="{Binding Content}" LineBreakMode="WordWrap"/>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="30">
+                    <Label Text="검색 결과가 없습니다." HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <ActivityIndicator Grid.Row="1" 
+                           IsRunning="{Binding IsSearching}" 
+                           IsVisible="{Binding IsSearching}"
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"/>
+    </Grid>
+</ContentPage>

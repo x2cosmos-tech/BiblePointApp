@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiblePointApp.ShopPage"
+             Title="포인트 상점"
+             BackgroundColor="#F0F2F5">
+
+    <Grid RowDefinitions="Auto, *">
+        <Border Grid.Row="0" BackgroundColor="#512BD4" Padding="20" Margin="0,0,0,10">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                <Label Text="보유 포인트:" TextColor="White" VerticalOptions="Center"/>
+                <Label x:Name="CurrentPointLabel" Text="{Binding CurrentPointsDisplay}" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+            </HorizontalStackLayout>
+        </Border>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="15" Spacing="15">
+                <Label Text="특별 아이템" FontSize="18" FontAttributes="Bold" Margin="5,0"/>
+
+                <CollectionView x:Name="ShopCollectionView" SelectionMode="None"
+                                ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeShape="RoundRectangle 12" StrokeThickness="0" BackgroundColor="White" Padding="10" HeightRequest="180">
+                                <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                                    <Image Source="{Binding ImageUrl}" HeightRequest="60" Aspect="AspectFit"/>
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding Description}" FontSize="11" TextColor="Gray" HorizontalOptions="Center" HorizontalTextAlignment="Center" MaxLines="2"/>
+                                    <Button Text="{Binding PriceDisplay}" 
+                                            Clicked="OnBuyItemClicked"
+                                            CommandParameter="{Binding .}"
+                                            HeightRequest="38" 
+                                            FontSize="13" 
+                                            FontAttributes="Bold"
+                                            Margin="0,5,0,0"
+                                            BackgroundColor="#512BD4" 
+                                            TextColor="White" 
+                                            CornerRadius="19" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

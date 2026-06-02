@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiblePointApp.MyInfoPage"
+             Title="내 정보"
+             BackgroundColor="#F0F2F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" HorizontalOptions="Center">
+
+            <Border StrokeShape="RoundRectangle 15"
+                    StrokeThickness="0"
+                    HeightRequest="250" 
+                    WidthRequest="300" 
+                    HorizontalOptions="Center"
+                    BackgroundColor="White">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="5,5" Radius="10" Opacity="0.1" />
+                </Border.Shadow>
+
+                <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                    <Image x:Name="RankImage" 
+                           Source="rank_level0.png" 
+                           HeightRequest="180"
+                           Aspect="AspectFit"
+                           Margin="10" />
+
+                    <Label x:Name="RankNameLabel"
+                           Text="등급 확인 중..."
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="#512BD4"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 20"
+                    StrokeThickness="0"
+                    BackgroundColor="White"
+                    Padding="25"
+                    WidthRequest="320">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,4" Radius="15" Opacity="0.05" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <Label x:Name="UserNameLabel" 
+                           Text="성도님"
+                           FontSize="26" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <BoxView HeightRequest="1" Color="#F0F0F0" />
+
+                    <Label Text="보유 포인트" 
+                           FontSize="15" 
+                           TextColor="#666" 
+                           HorizontalOptions="Center"/>
+
+                    <Label x:Name="PointLabel" 
+                           Text="0 P" 
+                           FontSize="44" 
+                           FontAttributes="Bold" 
+                           TextColor="#512BD4" 
+                           HorizontalOptions="Center" />
+
+                    <Label x:Name="ProgressLabel" 
+                           Text="다음 등급까지 계산 중..." 
+                           FontSize="13" 
+                           TextColor="#888" 
+                           HorizontalOptions="Center"/>
+
+                    <Button Text="이름 변경" 
+                            Clicked="OnEditNameClicked" 
+                            BackgroundColor="#512BD4"
+                            TextColor="White"
+                            CornerRadius="10"
+                            Margin="0,10,0,0" />
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

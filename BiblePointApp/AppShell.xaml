@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="BiblePointApp.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:BiblePointApp"
+       Title="BiblePointApp"
+       FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="DarkBlue" HeightRequest="150" Padding="20">
+            <Label Text="바이블 포인트" TextColor="White" FontSize="24" FontAttributes="Bold" VerticalOptions="End"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="🏠 홈" Route="MainPage">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="✍️ 필사 이어하기" FlyoutItemIsVisible="True">
+        <ShellContent ContentTemplate="{DataTemplate local:VerseWritingPage}" Route="VerseWritingPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="🔍 성경 검색" Route="SearchPage">
+        <ShellContent ContentTemplate="{DataTemplate local:SearchPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="📑 책갈피" Route="BookmarkPage">
+        <ShellContent ContentTemplate="{DataTemplate local:BookmarkPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="🧠 나의 암기장" Route="MemoryPage">
+        <ShellContent ContentTemplate="{DataTemplate local:MemoryPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="🙏 기도 노트" Route="PrayerPage">
+        <ShellContent ContentTemplate="{DataTemplate local:PrayerPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="🙋 내 정보" Route="MyInfoPage">
+        <ShellContent ContentTemplate="{DataTemplate local:MyInfoPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="🏪 포인트 상점" Route="ShopPage">
+        <ShellContent ContentTemplate="{DataTemplate local:ShopPage}" />
+    </FlyoutItem>
+
+</Shell>
