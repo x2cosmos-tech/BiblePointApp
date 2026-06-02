@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiblePointApp.MemoryExamPage"
+             Title="암송 테스트">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+
+            <!-- 레퍼런스 -->
+            <Label Text="{Binding Reference}" FontAttributes="Bold" FontSize="18" />
+
+            <!-- 표시(밑줄/입력 반영) -->
+            <Frame Padding="8" BackgroundColor="#F8F8F8" CornerRadius="8">
+                <Label Text="{Binding DisplayText}" FontSize="20" LineBreakMode="NoWrap" />
+            </Frame>
+
+            <!-- 입력 박스 -->
+            <Entry Text="{Binding InputText, Mode=TwoWay}" 
+                   Placeholder="여기에 입력하세요" 
+                   IsEnabled="{Binding IsExamEntryEnabled}"
+                   ReturnType="Done" />
+
+            <!-- 힌트 -->
+            <Label Text="{Binding OriginalAnswer}" 
+                   IsVisible="{Binding IsHintVisible}" 
+                   FontAttributes="Italic" TextColor="Gray" />
+
+            <!-- 버튼들 -->
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="힌트 보기" Command="{Binding ShowHintCommand}" />
+                <Button Text="완료" Command="{Binding CompleteCommand}" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
